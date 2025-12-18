@@ -1,0 +1,168 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact: {}
+  description: 区块链资产查询API
+  title: Blockchain Asset API
+  version: "1.0"
+paths:
+  /address/{addr}/balance:
+    get:
+      consumes:
+      - application/json
+      description: 根据以太坊地址查询ETH余额
+      parameters:
+      - description: 以太坊地址
+        in: path
+        name: addr
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 查询ETH余额
+      tags:
+      - balance
+  /address/{addr}/tokens:
+    get:
+      consumes:
+      - application/json
+      description: 根据地址和合约地址查询ERC20代币余额
+      parameters:
+      - description: 以太坊地址
+        in: path
+        name: addr
+        required: true
+        type: string
+      - description: ERC20合约地址
+        in: query
+        name: contract
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 查询ERC20代币余额
+      tags:
+      - balance
+  /block/{blocknum}:
+    get:
+      consumes:
+      - application/json
+      description: 根据区块号查询区块详细信息
+      parameters:
+      - description: 区块号
+        in: path
+        name: blocknum
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 查询区块信息
+      tags:
+      - block
+  /scan:
+    get:
+      consumes:
+      - application/json
+      description: 从指定区块开始扫描并将数据存储到数据库
+      parameters:
+      - description: 起始区块号（不指定则从数据库最新区块+1开始）
+        in: query
+        name: from_block
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 扫描区块
+      tags:
+      - scan
+  /transaction/{txhash}:
+    get:
+      consumes:
+      - application/json
+      description: 根据交易哈希查询交易详细信息
+      parameters:
+      - description: 交易哈希
+        in: path
+        name: txhash
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 查询交易详情
+      tags:
+      - transaction
+swagger: "2.0"

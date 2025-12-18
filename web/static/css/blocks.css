@@ -1,0 +1,64 @@
+.filter-panel {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.transaction-type {
+    font-size: 0.8em;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.eth-transfer {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.erc20-transfer {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.contract-call {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.address-hash {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.tx-hash {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.amount-value {
+    font-weight: bold;
+}
+
+.status-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.status-failed {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.gas-fee {
+    font-size: 0.9em;
+    color: #6c757d;
+}
